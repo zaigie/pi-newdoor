@@ -2,8 +2,7 @@
 这篇文章要实现的东西呢，其实在去年就有了想法，但在当时完全没有接触硬件的情况下，一直感觉会很难实现，直到偶然机会接触了树莓派...好了，废话不多说，咱们开始吧~
 
 ## 成品 ##
-![opendoor.gif][1]
-
+GIF图：
 http://qiniu.zaigie.com/2019/05/1977446829.gif
 
 ![成品1][2]
@@ -30,6 +29,5 @@ http://qiniu.zaigie.com/2019/05/1977446829.gif
  - Flask框架
 
 
-  [1]: http://qiniu.zaigie.com/2019/05/1977446829.gif
   [2]: http://qiniu.zaigie.com/2019/05/4020774372.jpg
   [3]: http://qiniu.zaigie.com/2019/05/96436279.jpg

@@ -14,27 +14,14 @@ a = 10
 b = 2
 GPIO.setup(open, GPIO.OUT)
 pwm = GPIO.PWM(open, fPWM)
-
-def OpenDoor(direction):
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(open, GPIO.OUT)
-    pwm.start(0)
-    duty = a / 180 * direction + b
-    pwm.ChangeDutyCycle(duty)
-    print("direction =", direction, "-> duty =", duty)
-    time.sleep(1)
-
 @app.route("/")
 def index():
     return render_template('index.html')
 
-@app.route("/open")
+@app.route("/<on>/<yes>")
 def mainopen():
-    OpenDoor(45)
-    time.sleep(0.5)
-    OpenDoor(0)
-    GPIO.cleanup()
-    return render_template('index2.html')
+    os.system("python3 servo.py ")
+    return render_template('index.html')
 
 
 if __name__ == '__main__':

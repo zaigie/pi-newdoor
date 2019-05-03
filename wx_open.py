@@ -2,7 +2,7 @@ import itchat
 import time
 import RPi.GPIO as GPIO
 '''set GPIO'''
-GPIO.setmode(BOARD)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 open = 12
 fPWM = 50
@@ -20,11 +20,11 @@ def setup():
 '''set itchat to login wechat and search group'''
 itchat.auto_login(hotReload=True)
 rooms = itchat.get_chatrooms(update=True)
-rooms = itchat.search_chatrooms(name='open')
+rooms = itchat.search_chatrooms(name='door')  #name='你的微信群名'
 if rooms is not None:
     username = rooms[0]['UserName']
 else:
-    username = 'filehelper'
+    username = 'filehelper' #如果微信群名不存在就通过文件助手发
 
 '''opendoor'''
 def OpenDoor(direction):
@@ -40,7 +40,7 @@ def OpenDoor(direction):
 @itchat.msg_register(itchat.content.TEXT,isGroupChat=True)
 def reply_msg(msg):
     if msg['Content'] == u'开门':
-            OpenDoor(45)
+            OpenDoor(150)
             time.sleep(1)
             OpenDoor(0)
             itchat.send_msg("欢迎回来！" ,toUserName=username)

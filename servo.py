@@ -3,11 +3,11 @@ import time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
-opened = 12
+open = 12
 a = 10
 b = 2
-GPIO.setup(opened,GPIO.OUT)
-pwm = GPIO.PWM(opened,50)
+GPIO.setup(open,GPIO.OUT)
+pwm = GPIO.PWM(open,50)
 
 def OpenDoor(direction):
     GPIO.setmode(GPIO.BOARD)
@@ -19,8 +19,9 @@ def OpenDoor(direction):
     time.sleep(1)
 
 if __name__ == '__main__':
-    GPIO.setup(opened, GPIO.OUT)
-    OpenDoor(150)
+    GPIO.setup(open, GPIO.OUT)
+    OpenDoor(162)
     time.sleep(1)
     OpenDoor(0)
+    pwm.stop()
     GPIO.cleanup()

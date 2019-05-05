@@ -18,10 +18,13 @@ pwm = GPIO.PWM(open, fPWM)
 def index():
     return render_template('index.html')
 
-@app.route("/<on>/<yes>")
+@app.route("/open/yes")
 def mainopen():
-    os.system("python3 servo.py ")
-    return render_template('index.html')
+    #os.system("python3 servo.py ")
+    os.system("python3 down.py ")
+    time.sleep(1)
+    os.system("python3 up.py ")
+    return render_template('index2.html')
 
 
 if __name__ == '__main__':

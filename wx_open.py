@@ -40,9 +40,10 @@ def OpenDoor(direction):
 @itchat.msg_register(itchat.content.TEXT,isGroupChat=True)
 def reply_msg(msg):
     if msg['Content'] == u'开门':
-            OpenDoor(150)
+            OpenDoor(162)
             time.sleep(1)
             OpenDoor(0)
+            pwm.stop()
             itchat.send_msg("欢迎回来！" ,toUserName=username)
             GPIO.cleanup()
 
